@@ -1,4 +1,3 @@
-
 const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
@@ -14,26 +13,23 @@ function setup() {
 	createCanvas(800, 600);
 	rectMode(CENTER);
 
-
 	engine = Engine.create();
 	world = engine.world;
 
 	roofObject = new roof(400, 250, 230, 20);
-	bob1 = new bob(320, 575, 40);
-	bob2 = new bob(360, 575, 40);
-	bob3 = new bob(400, 575, 40);
-	bob4 = new bob(440, 575, 40);
-	bob5 = new bob(480, 575, 40);
+	bob1 = new Bob(320, 575, 40);
+	bob2 = new Bob(360, 575, 40);
+	bob3 = new Bob(400, 575, 40);
+	bob4 = new Bob(440, 575, 40);
+	bob5 = new Bob(480, 575, 40);
 	
-	rope1 = new rope(bob1.body, roofObject.body, -80);
-	rope2 = new rope(bob2.body, roofObject.body, -40);
-	rope3 = new rope(bob3.body, roofObject.body, 0);
-	rope4 = new rope(bob4.body, roofObject.body, 40);
-	rope5 = new rope(bob5.body, roofObject.body, 80);
+	rope1 = new Rope(bob1.body, roofObject.body, -80);
+	rope2 = new Rope(bob2.body, roofObject.body, -40);
+	rope3 = new Rope(bob3.body, roofObject.body, 0);
+	rope4 = new Rope(bob4.body, roofObject.body, 40);
+	rope5 = new Rope(bob5.body, roofObject.body, 80);
 	
-	Engine.run(engine);
-	
-  
+	Engine.run(engine); 
 }
 
 function draw() {
@@ -55,12 +51,8 @@ function draw() {
   bob5.display();
 }
 
-
 function keyPressed() {
-	if (keyCode === UP_ARROW) {
-        //WRITE A CORRECT CODE TO APPLY A KEYPRESSED TO CHANGE THE POSITION OF BALL OBJECT TO THE LEFT WHEN UP ARROW KEY IS PRESSED
+	if (keyCode === 32) {
         Matter.Body.applyForce(bob1, {x:0, y:0}, {x: -0.05, y:0});
 	}
 }
-
-
