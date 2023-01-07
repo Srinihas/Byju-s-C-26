@@ -1,3 +1,4 @@
+
 const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
@@ -12,6 +13,7 @@ var world;
 function setup() {
 	createCanvas(800, 600);
 	rectMode(CENTER);
+
 
 	engine = Engine.create();
 	world = engine.world;
@@ -29,7 +31,7 @@ function setup() {
 	rope4 = new Rope(bob4.body, roofObject.body, 40);
 	rope5 = new Rope(bob5.body, roofObject.body, 80);
 	
-	Engine.run(engine); 
+	Engine.run(engine);
 }
 
 function draw() {
@@ -52,7 +54,10 @@ function draw() {
 }
 
 function keyPressed() {
-	if (keyCode === 32) {
-        Matter.Body.applyForce(bob1, {x:0, y:0}, {x: -0.05, y:0});
+	if (keyCode === UP_ARROW) {
+   		Matter.Body.applyForce(bob1.body, bob1.body.position, {x: -50, y: -50});
 	}
+	if (keyCode === DOWN_ARROW) {
+		Matter.Body.applyForce(bob1.body, bob1.body.position, {x: 50, y: 50});
+ 	}
 }
