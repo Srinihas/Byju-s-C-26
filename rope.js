@@ -12,20 +12,19 @@ class Rope {
 		this.offsetX = offsetX
 	}
 
-	display()
-	{
+	display() {
 		var pointA = this.rope.bodyA.position;
 		var pointB = this.rope.bodyB.position;
+
+		var pos = this.position;
 
 		strokeWeight(2);
 
 		//WRITE THE CORRECT CODE TO RENDER A LINE BETWEEN THE TWO BODIES
 		push();
 		
-		translate(this.body.position.x, this.body.position.y);
-		line(pointA, pointB, 100, 10);
-
-		line()
+		translate(pos);
+		line(pointA.x, pointA.y, pointB.x + this.offsetX, pointB.y);
 
 		pop();
 
